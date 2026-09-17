@@ -1,8 +1,11 @@
 # Abnormal Mouse：右拖方向可选版
 
-这是基于 [Abnormal Mouse](https://github.com/intitni/AbnormalMouseApp) 的个人修改版。它把普通鼠标的按住拖动转换为 macOS 四指轻扫，让没有触控板手势的鼠标也能在桌面空间之间连续切换。
+这是基于 [Abnormal Mouse](https://github.com/intitni/AbnormalMouseApp) 的功能新增版本。
+它把普通鼠标的按住拖动转换为 macOS 四指轻扫，让没有触控板手势的鼠标也能在桌面空间之间连续切换。
 
 本版本新增“向右拖动时”的方向选择：你可以让鼠标向右拖动时切到右侧桌面，也可以保留 macOS 默认的反向切换方式。
+
+主要是因为罗技鼠标原厂的G HUB太难用, 我选择了更好用的第三方软件 = = ,但是这个项目三年前就停更了,这里做一次更新
 
 ## 主要改动
 
