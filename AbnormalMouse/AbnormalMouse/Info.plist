@@ -38,9 +38,5 @@
 	<true/>
 	<key>NSSupportsSuddenTermination</key>
 	<true/>
-	<key>SUFeedURL</key>
-	<string>https://abnormalmouse.intii.com/appcast.xml</string>
-	<key>SUPublicEDKey</key>
-	<string>WDzm5GHnc6c8kjeJEgX5GuGiPpW6Lc/ovGjLnrrZvPY=</string>
 </dict>
 </plist>

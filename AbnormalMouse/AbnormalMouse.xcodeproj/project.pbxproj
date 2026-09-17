@@ -701,7 +701,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$PODS_ROOT/SwiftGen/bin/swiftgen\n";
+			shellScript = "\"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\n";
 		};
 		C8C158352794156100FD3EF3 /* Copy “Launch at Login Helper” */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1097,8 +1097,9 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 2022.3;
 				OTHER_CODE_SIGN_FLAGS = "--timestamp --deep --options runtime";
-				PRODUCT_BUNDLE_IDENTIFIER = com.intii.AbnormalMouse;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.intii.AbnormalMouseRightSwipe;
+				PRODUCT_NAME = "Abnormal Mouse Right Swipe";
+				PRODUCT_MODULE_NAME = AbnormalMouse;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1133,8 +1134,9 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 2022.3;
 				OTHER_CODE_SIGN_FLAGS = "--timestamp --deep --options runtime";
-				PRODUCT_BUNDLE_IDENTIFIER = com.intii.AbnormalMouse;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.intii.AbnormalMouseRightSwipe;
+				PRODUCT_NAME = "Abnormal Mouse Right Swipe";
+				PRODUCT_MODULE_NAME = AbnormalMouse;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
@@ -1161,7 +1163,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AbnormalMouse.app/Contents/MacOS/AbnormalMouse";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Abnormal Mouse Right Swipe.app/Contents/MacOS/Abnormal Mouse Right Swipe";
 			};
 			name = Debug;
 		};
@@ -1185,7 +1187,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AbnormalMouse.app/Contents/MacOS/AbnormalMouse";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Abnormal Mouse Right Swipe.app/Contents/MacOS/Abnormal Mouse Right Swipe";
 			};
 			name = Release;
 		};
@@ -1278,8 +1280,9 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 2022.3;
 				OTHER_CODE_SIGN_FLAGS = "--timestamp --deep --options runtime";
-				PRODUCT_BUNDLE_IDENTIFIER = com.intii.AbnormalMouse;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.intii.AbnormalMouseRightSwipe;
+				PRODUCT_NAME = "Abnormal Mouse Right Swipe";
+				PRODUCT_MODULE_NAME = AbnormalMouse;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1307,7 +1310,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AbnormalMouse.app/Contents/MacOS/AbnormalMouse";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Abnormal Mouse Right Swipe.app/Contents/MacOS/Abnormal Mouse Right Swipe";
 			};
 			name = Preview;
 		};

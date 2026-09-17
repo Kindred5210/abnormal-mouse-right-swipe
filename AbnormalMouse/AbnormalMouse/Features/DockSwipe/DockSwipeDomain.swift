@@ -3,6 +3,13 @@ import Combine
 import ComposableArchitecture
 import Foundation
 
+enum DockSwipeHorizontalDirection: Int, CaseIterable, Equatable, PropertyListStorable {
+    /// Reverse the event progress so the desktop follows the physical mouse drag.
+    case rightDragMovesRight
+    /// Keep macOS's native four-finger horizontal swipe direction.
+    case rightDragMovesLeft
+}
+
 enum DockSwipeDomain: Domain {
     struct State: Equatable {
         struct DockSwipeActivator: Equatable {
@@ -13,10 +20,13 @@ enum DockSwipeDomain: Domain {
         }
 
         var dockSwipeActivator = DockSwipeActivator()
+        var horizontalDirection = DockSwipeHorizontalDirection.rightDragMovesRight
     }
 
     enum Action: Equatable {
         case appear
+
+        case setHorizontalDirection(Int)
 
         case dockSwipe(DockSwipe)
         enum DockSwipe: Equatable {
@@ -42,6 +52,13 @@ enum DockSwipeDomain: Domain {
     static let reducer = Reducer.combine(
         Reducer { state, action, environment in
             switch action {
+            case let .setHorizontalDirection(rawValue):
+                let direction = DockSwipeHorizontalDirection(rawValue: rawValue)
+                    ?? .rightDragMovesRight
+                state.horizontalDirection = direction
+                return .fireAndForget {
+                    environment.persisted.horizontalDirection = direction
+                }
             case let .dockSwipe(action):
                 switch action {
                 case let .setKeyCombination(combination):
@@ -78,6 +95,8 @@ enum DockSwipeDomain: Domain {
                     .init(value: ._internal(.checkConflict)),
                     .init(value: ._internal(.checkValidity)),
                 ])
+            case .setHorizontalDirection:
+                return .none
             case let ._internal(internalAction):
                 switch internalAction {
                 case .checkConflict:
@@ -102,7 +121,8 @@ extension DockSwipeDomain.State {
             dockSwipeActivator: .init(
                 keyCombination: persisted.keyCombination,
                 numberOfTapsRequired: persisted.numberOfTapsRequired
-            )
+            ),
+            horizontalDirection: persisted.horizontalDirection
         )
     }
 }

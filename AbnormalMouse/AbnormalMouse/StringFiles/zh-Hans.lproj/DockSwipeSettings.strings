@@ -1,4 +1,7 @@
 "View.Title" = "四指轻扫";
 "View.Introduction" = "这个功能能够将鼠标移动转变为四指轻扫手势，如此一来你就能通过一个普通鼠标在空间之间移动、呼出调度中心了。";
 "View.ActivationKeyCombinationTitle" = "按住触发键生效";
+"View.HorizontalDirectionTitle" = "向右拖动时";
+"View.RightDragMovesRight" = "切换到右侧桌面";
+"View.RightDragMovesLeft" = "切换到左侧桌面（macOS 默认）";
 "View.Tips.Usage" = "你需要按住触发键，同时移动鼠标以实现轻扫。";

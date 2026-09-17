@@ -54,12 +54,35 @@ private struct DockSwipeView: View {
                     )
                 }
 
+                horizontalDirectionPicker
+
                 SettingsTips {
                     Text(_L10n.View.Tips.usage).tipsTitle(_L10n.TipsTitle.usage)
                     EmptyView()
                 }
             }
         )
+    }
+
+    private var horizontalDirectionPicker: some View {
+        WithViewStore(store.scope(state: \.horizontalDirection)) { viewStore in
+            SettingsPicker(
+                title: Text(_L10n.View.horizontalDirectionTitle),
+                selection: viewStore.binding(
+                    get: { $0.rawValue },
+                    send: DockSwipeDomain.Action.setHorizontalDirection
+                )
+            ) {
+                ForEach(DockSwipeHorizontalDirection.allCases, id: \.rawValue) { direction in
+                    Text(
+                        direction == .rightDragMovesRight
+                            ? _L10n.View.rightDragMovesRight
+                            : _L10n.View.rightDragMovesLeft
+                    )
+                    .tag(direction.rawValue)
+                }
+            }
+        }
     }
 }
 

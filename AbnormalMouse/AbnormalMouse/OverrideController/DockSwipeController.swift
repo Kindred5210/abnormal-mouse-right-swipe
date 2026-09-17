@@ -112,6 +112,10 @@ extension DockSwipeController {
             return -pv
         }
 
+        // Keep the native, continuous Dock swipe event while making its horizontal
+        // direction configurable from the Four-Finger Swipe settings page.
+        let horizontalProgress = persisted.horizontalDirection == .rightDragMovesRight ? -ra : ra
+
         func postEvents() {
             switch state.eventPosterState {
             case .inactive:
@@ -124,7 +128,10 @@ extension DockSwipeController {
                 tapHold.consume()
                 switch direction {
                 case .horizontal:
-                    p.postDockSwipe(direction: .horizontal(rightAccumulation: ra), phase: .began)
+                    p.postDockSwipe(
+                        direction: .horizontal(rightAccumulation: horizontalProgress),
+                        phase: .began
+                    )
                 case .vertical:
                     p.postDockSwipe(direction: .vertical(upAccumulation: ua), phase: .began)
                 }
@@ -132,7 +139,10 @@ extension DockSwipeController {
             case let .changed(direction):
                 switch direction {
                 case .horizontal:
-                    p.postDockSwipe(direction: .horizontal(rightAccumulation: ra), phase: .changed)
+                    p.postDockSwipe(
+                        direction: .horizontal(rightAccumulation: horizontalProgress),
+                        phase: .changed
+                    )
                 case .vertical:
                     p.postDockSwipe(direction: .vertical(upAccumulation: ua), phase: .changed)
                 }
@@ -140,7 +150,10 @@ extension DockSwipeController {
             case let .shouldEnd(direction):
                 switch direction {
                 case .horizontal:
-                    p.postDockSwipe(direction: .horizontal(rightAccumulation: ra), phase: .ended)
+                    p.postDockSwipe(
+                        direction: .horizontal(rightAccumulation: horizontalProgress),
+                        phase: .ended
+                    )
                 case .vertical:
                     p.postDockSwipe(direction: .vertical(upAccumulation: ua), phase: .ended)
                 case .none: break

@@ -35,7 +35,9 @@ private let eoi: Set<CGEventType> = {
 private let eventHook = CGEventHook(eventsOfInterest: eoi)
 private let purchaseManager = RealPurchaseManager()
 private let launchAtLoginManager = LaunchAtLoginManager()
-private let updater = SparkleUpdater()
+// This custom build deliberately never initializes Sparkle, so it cannot
+// contact or install the official application's updates.
+private let updater = FakeUpdater()
 #endif
 
 private let store = TheApp.Store(

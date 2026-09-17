@@ -34,7 +34,6 @@ private struct GeneralView: View {
         ScrollView {
             self.settings
             PurchaseStateView(store: self.store)
-            self.update
             self.about
             Spacer()
         }
@@ -67,29 +66,6 @@ private struct GeneralView: View {
                 .padding(.top, 12),
             alignment: .topTrailing
         )
-    }
-
-    private var update: some View {
-        SettingsSectionView(showSeparator: true) {
-            WithViewStore(store) { viewStore in
-                VStack(alignment: .leading) {
-                    HStack {
-                        Text(_L10n.version(viewStore.version))
-                        Button(action: { viewStore.send(.checkForUpdate) }) {
-                            Text(_L10n.checkForUpdate)
-                        }
-                    }
-                    SettingsCheckbox(
-                        isOn: viewStore.binding(
-                            get: { $0.automaticallyCheckForUpdate },
-                            send: { _ in .toggleAutomaticallyCheckForUpdate }
-                        )
-                    ) {
-                        Text(_L10n.automaticallyCheckForUpdate)
-                    }
-                }
-            }
-        }
     }
 
     private var about: some View {

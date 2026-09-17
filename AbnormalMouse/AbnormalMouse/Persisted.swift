@@ -117,6 +117,8 @@ struct Persisted: PersistedType {
         var keyCombination: KeyCombination?
         @UserDefault(key("NumberOfTapsRequired"), defaultValue: 1)
         var numberOfTapsRequired: Int
+        @UserDefault(key("HorizontalDirection"), defaultValue: .rightDragMovesRight)
+        var horizontalDirection: DockSwipeHorizontalDirection
     }
 }
 

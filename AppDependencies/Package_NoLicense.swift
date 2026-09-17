@@ -15,15 +15,15 @@ let package = Package(
         .package(
             name: "CGEventOverride",
             url: "https://github.com/intitni/CGEventOverride.git",
-            .branch("master")
+            .revision("a6585d580eedc151ec9918af06a182d26e1248f5")
         ),
         .package(
             url: "https://github.com/pointfreeco/swift-composable-architecture",
-            .upToNextMajor(from: "0.3.0")
+            .exact("0.28.1")
         ),
         .package(
             url: "https://github.com/CombineCommunity/CombineExt",
-            .upToNextMajor(from: "1.2.0")
+            .exact("1.5.1")
         ),
     ],
     targets: [

@@ -54,8 +54,14 @@ internal enum L10n {
     internal enum View {
       /// Active when holding
       internal static let activationKeyCombinationTitle = L10n.tr("DockSwipeSettings", "View.ActivationKeyCombinationTitle")
+      /// Right-drag action
+      internal static let horizontalDirectionTitle = L10n.tr("DockSwipeSettings", "View.HorizontalDirectionTitle")
       /// This feature converts mouse movement into a four-finger swipe, enabling you to switch spaces with a normal mouse.
       internal static let introduction = L10n.tr("DockSwipeSettings", "View.Introduction")
+      /// Switch to desktop on the left (macOS default)
+      internal static let rightDragMovesLeft = L10n.tr("DockSwipeSettings", "View.RightDragMovesLeft")
+      /// Switch to desktop on the right
+      internal static let rightDragMovesRight = L10n.tr("DockSwipeSettings", "View.RightDragMovesRight")
       /// 4-Finger Swipe
       internal static let title = L10n.tr("DockSwipeSettings", "View.Title")
       internal enum Tips {

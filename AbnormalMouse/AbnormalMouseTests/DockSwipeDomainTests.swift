@@ -37,6 +37,7 @@ class DockSwipeDomainTests: XCTestCase {
         XCTAssertEqual(initialState.dockSwipeActivator.keyCombination, nil)
         XCTAssertEqual(initialState.dockSwipeActivator.numberOfTapsRequired, 1)
         XCTAssertEqual(initialState.dockSwipeActivator.hasConflict, false)
+        XCTAssertEqual(initialState.horizontalDirection, .rightDragMovesRight)
 
         store.assert(
             .send(.dockSwipe(.setKeyCombination(keyCombination))) {
@@ -64,6 +65,15 @@ class DockSwipeDomainTests: XCTestCase {
             .receive(._internal(.checkConflict)),
             .do {
                 XCTAssertEqual(persisted.numberOfTapsRequired, 2)
+            },
+            .send(.setHorizontalDirection(
+                DockSwipeHorizontalDirection.rightDragMovesLeft
+                    .rawValue
+            )) {
+                $0.horizontalDirection = .rightDragMovesLeft
+            },
+            .do {
+                XCTAssertEqual(persisted.horizontalDirection, .rightDragMovesLeft)
             },
             .send(.dockSwipe(.clearKeyCombination)) {
                 $0.dockSwipeActivator.keyCombination = nil
